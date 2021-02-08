@@ -1,0 +1,25 @@
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+prompt = no
+
+[ v3_req ]
+
+# Extensions to add to a certificate request
+
+basicConstraints = CA:TRUE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment, keyCertSign
+subjectAltName = @alt_names
+
+[req_distinguished_name]
+countryName         = US
+stateOrProvinceName = NY
+localityName        = New York
+organizationName    = Example, LLC
+commonName          = *.mongo.mongo.svc.cluster.local
+emailAddress        = test@example.com
+
+[alt_names]
+DNS.1       = *.mongo.mongo.svc.cluster.local
+DNS.2       = 127.0.0.1
+DNS.3       = localhost
